@@ -96,6 +96,12 @@ Mode Mode::numbers() {
 	return r;
 }
 
+Mode Mode::random() {
+	Mode r = range(0, 15);
+	r.name = "random";
+	return r;
+}
+
 std::string Mode::transformKernel() const {
 	switch (this->target) {
 		case ADDRESS:

@@ -148,6 +148,7 @@ int main(int argc, char * * argv) {
 		bool bModeZeros = false;
 		bool bModeLetters = false;
 		bool bModeNumbers = false;
+		bool bModeRandom = false;
 		std::string strModeLeading;
 		std::string strModeMatching;
 		bool bModeLeadingRange = false;
@@ -169,6 +170,7 @@ int main(int argc, char * * argv) {
 		argp.addSwitch('1', "zeros", bModeZeros);
 		argp.addSwitch('2', "letters", bModeLetters);
 		argp.addSwitch('3', "numbers", bModeNumbers);
+		argp.addSwitch('r', "random", bModeRandom);
 		argp.addSwitch('4', "leading", strModeLeading);
 		argp.addSwitch('5', "matching", strModeMatching);
 		argp.addSwitch('6', "leading-range", bModeLeadingRange);
@@ -204,6 +206,8 @@ int main(int argc, char * * argv) {
 			mode = Mode::letters();
 		} else if (bModeNumbers) {
 			mode = Mode::numbers();
+		} else if (bModeRandom) {
+			mode = Mode::random();
 		} else if (!strModeLeading.empty()) {
 			mode = Mode::leading(strModeLeading.front());
 		} else if (!strModeMatching.empty()) {
